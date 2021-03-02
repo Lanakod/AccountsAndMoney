@@ -1,0 +1,10 @@
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\bin\Debug\AccountsAndMoney.exe.config
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\bin\Debug\AccountsAndMoney.exe
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\bin\Debug\AccountsAndMoney.pdb
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.csprojAssemblyReference.cache
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.Form1.resources
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.Properties.Resources.resources
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.csproj.GenerateResource.cache
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.csproj.CoreCompileInputs.cache
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.exe
+C:\Users\lanak\source\repos\AccountsAndMoney\AccountsAndMoney\obj\Debug\AccountsAndMoney.pdb
