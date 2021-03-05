@@ -23,35 +23,32 @@ namespace AccountsAndMoney
             _sum = Amount;
             _delegate += Delegate;
             AccountID = accountID;
-            if (_delegate != null) _delegate($"Открыт счет №{AccountID} с суммой {Amount}", "Открытие счёта", MessageBoxIcon.Information);
+           _delegate?.Invoke($"Открыт счет №{AccountID} с суммой {Amount}", "Открытие счёта", MessageBoxIcon.Information);
         }
         public void Put(int Amount)
         {
             _sum += Amount;
-            if (_delegate != null) _delegate($"Сумма {Amount} положена на счёт №{AccountID}", "Пополнение счёта", MessageBoxIcon.Information);
+            _delegate?.Invoke($"Сумма {Amount} положена на счёт №{AccountID}", "Пополнение счёта", MessageBoxIcon.Information);
         }
         public void Send(int Amount, Account account)
         {
             if (Amount <= _sum)
             {
                 _sum -= Amount;
+                _delegate?.Invoke($"Сумма {Amount} переведена с счёта №{AccountID} на счет №{account.AccountID}, осталось {_sum}", "Перевод с счёта", MessageBoxIcon.Warning);
                 account.Put(Amount);
-                if (_delegate != null) _delegate($"Сумма {Amount} переведена с счёта №{AccountID} на счет №{account.AccountID}, осталось {_sum}", "Перевод с счёта", MessageBoxIcon.Warning);
             }
-            else if (_delegate != null) _delegate($"Недостаточно средств на счете №{account.AccountID}", "Ошибка", MessageBoxIcon.Error);
+            else _delegate?.Invoke($"Недостаточно средств на счете №{account.AccountID}", "Ошибка", MessageBoxIcon.Error);
         }
         public void Withdraw(int Amount)
         {
             if (Amount <= _sum)
             {
                 _sum -= Amount;
-                if (_delegate != null) _delegate($"Сумма {Amount} снята с счета №{AccountID}, осталось {_sum}", "Снятие с счёта", MessageBoxIcon.Warning);
+                _delegate?.Invoke($"Сумма {Amount} снята с счета №{AccountID}, осталось {_sum}", "Снятие с счёта", MessageBoxIcon.Warning);
             }
-            else if (_delegate != null) _delegate($"Недостаточно средств на счете №{AccountID}", "Ошибка", MessageBoxIcon.Error);
+            else _delegate?.Invoke($"Недостаточно средств на счете №{AccountID}", "Ошибка", MessageBoxIcon.Error);
         }
-        public void UnregisterHandler(AccountStateHandler Delegate)
-        {
-            _delegate -= Delegate;
-        }
+        public void UnregisterHandler(AccountStateHandler Delegate) => _delegate -= Delegate;
     }
 }

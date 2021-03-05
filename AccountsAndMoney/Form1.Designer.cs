@@ -34,13 +34,13 @@
             this.button_CreateAccount = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox_WD = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox_Send = new System.Windows.Forms.TextBox();
-            this.comboBox_Send = new System.Windows.Forms.ComboBox();
-            this.button_Send = new System.Windows.Forms.Button();
-            this.textBox_Current = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox_Current = new System.Windows.Forms.TextBox();
+            this.button_Send = new System.Windows.Forms.Button();
+            this.comboBox_Send = new System.Windows.Forms.ComboBox();
+            this.textBox_Send = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox_WD = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,48 +104,14 @@
             this.panel1.Size = new System.Drawing.Size(426, 105);
             this.panel1.TabIndex = 5;
             // 
-            // textBox_WD
+            // label1
             // 
-            this.textBox_WD.Location = new System.Drawing.Point(94, 51);
-            this.textBox_WD.Name = "textBox_WD";
-            this.textBox_WD.Size = new System.Drawing.Size(121, 20);
-            this.textBox_WD.TabIndex = 5;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(221, 50);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 20);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Снять";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox_Send
-            // 
-            this.textBox_Send.Location = new System.Drawing.Point(94, 77);
-            this.textBox_Send.Name = "textBox_Send";
-            this.textBox_Send.Size = new System.Drawing.Size(121, 20);
-            this.textBox_Send.TabIndex = 7;
-            // 
-            // comboBox_Send
-            // 
-            this.comboBox_Send.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_Send.FormattingEnabled = true;
-            this.comboBox_Send.Location = new System.Drawing.Point(221, 76);
-            this.comboBox_Send.Name = "comboBox_Send";
-            this.comboBox_Send.Size = new System.Drawing.Size(121, 21);
-            this.comboBox_Send.TabIndex = 6;
-            // 
-            // button_Send
-            // 
-            this.button_Send.Location = new System.Drawing.Point(348, 76);
-            this.button_Send.Name = "button_Send";
-            this.button_Send.Size = new System.Drawing.Size(75, 20);
-            this.button_Send.TabIndex = 8;
-            this.button_Send.Text = "Перевести";
-            this.button_Send.UseVisualStyleBackColor = true;
-            this.button_Send.Click += new System.EventHandler(this.button_Send_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Текущая сумма";
             // 
             // textBox_Current
             // 
@@ -157,14 +123,48 @@
             this.textBox_Current.TabIndex = 9;
             this.textBox_Current.TabStop = false;
             // 
-            // label1
+            // button_Send
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Текущая сумма";
+            this.button_Send.Location = new System.Drawing.Point(348, 76);
+            this.button_Send.Name = "button_Send";
+            this.button_Send.Size = new System.Drawing.Size(75, 20);
+            this.button_Send.TabIndex = 8;
+            this.button_Send.Text = "Перевести";
+            this.button_Send.UseVisualStyleBackColor = true;
+            this.button_Send.Click += new System.EventHandler(this.button_Send_Click);
+            // 
+            // comboBox_Send
+            // 
+            this.comboBox_Send.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Send.FormattingEnabled = true;
+            this.comboBox_Send.Location = new System.Drawing.Point(221, 76);
+            this.comboBox_Send.Name = "comboBox_Send";
+            this.comboBox_Send.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_Send.TabIndex = 6;
+            // 
+            // textBox_Send
+            // 
+            this.textBox_Send.Location = new System.Drawing.Point(94, 77);
+            this.textBox_Send.Name = "textBox_Send";
+            this.textBox_Send.Size = new System.Drawing.Size(121, 20);
+            this.textBox_Send.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(221, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 20);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Снять";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox_WD
+            // 
+            this.textBox_WD.Location = new System.Drawing.Point(94, 51);
+            this.textBox_WD.Name = "textBox_WD";
+            this.textBox_WD.Size = new System.Drawing.Size(121, 20);
+            this.textBox_WD.TabIndex = 5;
             // 
             // Form1
             // 
