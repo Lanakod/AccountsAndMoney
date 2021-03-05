@@ -16,6 +16,7 @@ namespace AccountsAndMoney
         Account[] accounts = new Account[0];
         string[] AccountList = new string[0];
         string[] AccountListSend = new string[0];
+        int LastId = 1;
         int currentAccount = 0;
         public Form1()
         {
@@ -32,13 +33,14 @@ namespace AccountsAndMoney
                 Array.Resize(ref AccountList, AccountList.Length + 1);
                 Array.Resize(ref AccountListSend, AccountListSend.Length + 1);
 
-                accounts[accounts.Length - 1] = new Account(int.Parse(textBox_createAccount.Text), accounts.Length, Messager);
+                accounts[accounts.Length - 1] = new Account(int.Parse(textBox_createAccount.Text), LastId, Messager);
                 
-                AccountList[AccountList.Length - 1] = $"Счёт №{accounts.Length}";
+                AccountList[AccountList.Length - 1] = $"Счёт №{LastId}";
                 comboBox1.DataSource = AccountList;
 
-                AccountListSend[AccountListSend.Length - 1] = $"Счёт №{accounts.Length}";
+                AccountListSend[AccountListSend.Length - 1] = $"Счёт №{LastId}";
                 comboBox_Send.DataSource = AccountListSend;
+                LastId += 1;
             }
             else textBox_createAccount.Text = "";
         }
@@ -82,16 +84,55 @@ namespace AccountsAndMoney
             {
                 if (comboBox_Send.SelectedIndex != comboBox1.SelectedIndex)
                 {
-                    accounts[currentAccount].Send(int.Parse(textBox_Send.Text), accounts[comboBox_Send.SelectedIndex]);
-                    textBox_Current.Text = accounts[currentAccount].CurrentSum.ToString();
+                    if (Messager($"Вы точно хотите перевести {textBox_Send.Text} на счёт №{accounts[comboBox_Send.SelectedIndex].AccountID}", "Уведомление", MessageBoxIcon.Question, MessageBoxButtons.YesNo))
+                    {
+                        accounts[currentAccount].Send(int.Parse(textBox_Send.Text), accounts[comboBox_Send.SelectedIndex]);
+                        textBox_Current.Text = accounts[currentAccount].CurrentSum.ToString();
+                    }
                 }
                 else Messager($"Нельзя перевести средства на свой же счёт", "Ошибка", MessageBoxIcon.Error);
             }
             else textBox_Send.Text = "";
         }
-        public static void Messager(string Message, string Title, MessageBoxIcon icon = MessageBoxIcon.None)
+        public static bool Messager(string Message, string Title, MessageBoxIcon icon = MessageBoxIcon.None, MessageBoxButtons buttons = MessageBoxButtons.OK)
         {
-            MessageBox.Show(Message, Title, MessageBoxButtons.OK, icon);
+            DialogResult result = MessageBox.Show(Message, Title, buttons, icon);
+            if(buttons == MessageBoxButtons.YesNo)
+                if (result == DialogResult.Yes) return true;
+            return false;
+        }
+
+        private void button_Delete_Click(object sender, EventArgs e)
+        {
+            if(accounts.Length != 0)
+            {
+                if (Messager($"Вы точно хотите удалить счёт №{accounts[currentAccount].AccountID}", "Уведомление", MessageBoxIcon.Question, MessageBoxButtons.YesNo))
+                {
+                    int deletedAccountId = accounts[currentAccount].AccountID;
+                    accounts[currentAccount] = null;
+                    AccountList[currentAccount] = null;
+                    AccountListSend[currentAccount] = null;
+
+                    for (int i = currentAccount; i < accounts.Length; i++)
+                    {
+                        if (i < accounts.Length - 1)
+                        {
+                            accounts[i] = accounts[i + 1];
+                            AccountList[i] = AccountList[i + 1];
+                            AccountListSend[i] = AccountListSend[i + 1];
+                        }
+
+                        Array.Resize(ref accounts, accounts.Length - 1);
+                        Array.Resize(ref AccountList, AccountList.Length - 1);
+                        Array.Resize(ref AccountListSend, AccountListSend.Length - 1);
+
+                        Messager($"Вы удалили счёт №{deletedAccountId}", "Уведомление", MessageBoxIcon.Warning);
+
+                        comboBox1.DataSource = AccountList;
+                        comboBox_Send.DataSource = AccountListSend;
+                    }
+                }
+            }
         }
     }
 }

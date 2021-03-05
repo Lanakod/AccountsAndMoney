@@ -41,6 +41,7 @@
             this.textBox_Send = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_WD = new System.Windows.Forms.TextBox();
+            this.button_Delete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,11 +167,22 @@
             this.textBox_WD.Size = new System.Drawing.Size(121, 20);
             this.textBox_WD.TabIndex = 5;
             // 
+            // button_Delete
+            // 
+            this.button_Delete.Location = new System.Drawing.Point(314, 12);
+            this.button_Delete.Name = "button_Delete";
+            this.button_Delete.Size = new System.Drawing.Size(75, 20);
+            this.button_Delete.TabIndex = 6;
+            this.button_Delete.Text = "Удалить";
+            this.button_Delete.UseVisualStyleBackColor = true;
+            this.button_Delete.Click += new System.EventHandler(this.button_Delete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(450, 156);
+            this.Controls.Add(this.button_Delete);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_CreateAccount);
             this.Controls.Add(this.textBox_createAccount);
@@ -200,6 +212,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox_Current;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_Delete;
     }
 }
 
